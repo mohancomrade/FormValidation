@@ -145,13 +145,17 @@ function Forms() {
 
   return (
     <div className="App">
+
+      <h1 className="text-center">Login Form</h1>
       <h1>{handleSubmit}</h1>
    
       {/* <h1>{values}</h1> */}
       <div className="container">
       <form onSubmit={handleSubmit}>
       <div className="form-group">
-            <label htmlFor="name">Name:</label>
+
+
+      <label htmlFor="name">Name:</label>
             <input
               type="text"
               className="form-control"
@@ -160,11 +164,12 @@ function Forms() {
               placeholder="Name"
               value={name}
             />
-          </div>
+            </div>
+       
 
 
           <div className="form-group">
-            <label htmlFor="name">Name:</label>
+            <label htmlFor="name">Father Name:</label>
             <input
               type="text"
               className="form-control"
