@@ -1,11 +1,8 @@
 import { useState } from "react";
 
 // import Copy from "./Copy";
-import {  matchRoutes,useNavigate} from "react-router-dom";
-
-
-
-
+import { matchRoutes, useNavigate } from "react-router-dom";
+import "./Forms.css";
 
 function Forms() {
   const [name, setName] = useState("");
@@ -19,10 +16,7 @@ function Forms() {
   const [values, setValues] = useState([]);
   const [error, setError] = useState("");
 
-
-
   const navigate = useNavigate();
-
 
   const handleChange = (event) => {
     console.log(event.target.value);
@@ -31,7 +25,6 @@ function Forms() {
 
   const handleFatherNameChange = (event) => {
     setFatherName(event.target.value);
-    
   };
 
   const handleMobileChange = (event) => {
@@ -121,18 +114,23 @@ function Forms() {
         state,
       },
     ]);
-    navigate("/result-page", { state: { values: [...values,
-      {
-        name,
-        fatherName,
-        mobile,
-        email,
-        address,
-        gender,
-        martialStatus,
-        state,
-      }
-    ] } });
+    navigate("/result-page", {
+      state: {
+        values: [
+          ...values,
+          {
+            name,
+            fatherName,
+            mobile,
+            email,
+            address,
+            gender,
+            martialStatus,
+            state,
+          },
+        ],
+      },
+    });
 
     // setName("");
     // setFatherName("");
@@ -143,57 +141,77 @@ function Forms() {
     // setMartialStatus("");
     // setState("");
     // setError("");
-
-  
-
-
-  }
-
-
-  
+  };
 
   return (
- 
     <div className="App">
       <h1>{handleSubmit}</h1>
+   
       {/* <h1>{values}</h1> */}
+      <div className="container">
       <form onSubmit={handleSubmit}>
-        Name:
-        <input
-          type="text"
-          onChange={handleChange}
-          placeholder="Name"
-          value={name}
-        />
-        FatherName :{" "}
-        <input
-          type="text"
-          onChange={handleFatherNameChange}
-          placeholder="Father Name"
-          value={fatherName}
-        />
-        Mobile :{" "}
-        <input
-          type="number"
+      <div className="form-group">
+            <label htmlFor="name">Name:</label>
+            <input
+              type="text"
+              className="form-control"
+              id="name"
+              onChange={handleChange}
+              placeholder="Name"
+              value={name}
+            />
+          </div>
+
+
+          <div className="form-group">
+            <label htmlFor="name">Name:</label>
+            <input
+              type="text"
+              className="form-control"
+              id="name"
+              onChange={handleFatherNameChange}
+              placeholder="Father Name"
+              value={fatherName}
+            />
+          </div>
+
+          <div className="form-group">
+            <label htmlFor="name">Mobile:</label>
+            <input
+              
+              className="form-control"
+              type="number"
           onChange={handleMobileChange}
           placeholder="Mobile Number"
           value={mobile}
-        />
-        Email :{" "}
-        <input
-          type="email"
-          onChange={handleEmailChange}
-          placeholder="Email"
-          value={email}
-        />
-        Address:{" "}
-        <textarea
-          type="text"
-          onChange={handleAddressChange}
-          placeholder="Address"
-          value={address}
-        />
-        <div>
+            />
+          </div>
+
+          <div className="form-group">
+            <label htmlFor="name">Email:</label>
+            <input
+         
+              className="form-control"
+              type="email"
+              onChange={handleEmailChange}
+              placeholder="Email"
+              value={email}
+            />
+          </div>
+     
+          <div className="form-group">
+            <label htmlFor="name">Address:</label>
+            <input
+           
+              className="form-control"
+              type="text"
+              onChange={handleAddressChange}
+              placeholder="Address"
+              value={address}
+            />
+          </div>
+      
+        <div className="mt-3">
           <label htmlFor="gender">Gender:</label>
           <input
             type="radio"
@@ -216,7 +234,7 @@ function Forms() {
           {/* {errors.gender && <span>{errors.gender}</span>} */}
         </div>
         {/* <div> */}
-        <div>
+        <div className="mt-3">
           <label htmlFor="">Marital Status:</label>
           <input
             type="checkbox"
@@ -239,7 +257,7 @@ function Forms() {
           {/* {errors.gender && <span>{errors.gender}</span>} */}
         </div>
         <p>You have selected: {martialStatus || matchRoutes || "Unknown"}</p>
-        <div>
+        <div className="mt-2">
           <label htmlFor="state">State:</label>
           <select id="state" value={state} onChange={handleStateChange}>
             <option value=""></option>
@@ -249,32 +267,14 @@ function Forms() {
           </select>
           {/* {errors.state && <span>{errors.state}</span>} */}
         </div>
-        <button type="submit">Submit</button>
+        <button type="submit" className="btn btn-primary mt-5">Submit</button>
         {error && <div style={{ color: "red" }}>{error}</div>}
       </form>
-      {/* <ul>
-        {values.map((value, index) => (
-          <li key={index}>
-            <div>Name: {value.name}</div>
-            <div>Father's Name: {value.fatherName}</div>
-            <div>Mobile Number: {value.mobile}</div>
-            <div>Email ID: {value.email}</div>
-            <div>Address: {value.address}</div>
-            <div>Gender: {value.gender}</div>
-            <div>Marital Status: {value.martialStatus}</div>
-            <div>State: {value.state}</div>
-          </li>
-        ))}
-      </ul> */}
-
-      {/* <Routes>
-          <Route path="/result" element={<ResultPage />} />
-          <Route path="/" element={<Forms />} />
-        </Routes> */}
-
-     
-    </div>
+      </div>
+      </div>
  
+    
+  
   );
 }
 
