@@ -8,22 +8,20 @@ function ResultPage() {
   return (
     <div>
       <h2>Result Page</h2>
-      {values && values.length > 0 ? (
-        values.map((value, index) => (
-          <div key={index}>
-            <p>Name: {value.name}</p>
-            <p>Father's Name: {value.fatherName}</p>
-            <p>Mobile Number: {value.mobile}</p>
-            <p>Email: {value.email}</p>
-            <p>Address: {value.address}</p>
-            <p>Gender: {value.gender}</p>
-            <p>Marital Status: {value.martialStatus}</p>
-            <p>State: {value.state}</p>
-          </div>
-        ))
-      ) : (
-        <p></p>
-      )}
+     <ul>
+        {values.map((value, index) => (
+          <li key={index}>
+            <div>Name: {value.name}</div>
+            <div>Father's Name: {value.fatherName}</div>
+            <div>Mobile Number: {value.mobile}</div>
+            <div>Email ID: {value.email}</div>
+            <div>Address: {value.address}</div>
+            <div>Gender: {value.gender}</div>
+            <div>Marital Status: {value.martialStatus}</div>
+            <div>State: {value.state}</div>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }

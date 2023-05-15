@@ -121,17 +121,30 @@ function Forms() {
         state,
       },
     ]);
-    setName("");
-    setFatherName("");
-    setMobile("");
-    setEmail("");
-    setAddress("");
-    setGender("");
-    setMartialStatus("");
-    setState("");
-    setError("");
+    navigate("/result-page", { state: { values: [...values,
+      {
+        name,
+        fatherName,
+        mobile,
+        email,
+        address,
+        gender,
+        martialStatus,
+        state,
+      }
+    ] } });
 
-    navigate('/result-page', { state: { values: [...values] } });
+    // setName("");
+    // setFatherName("");
+    // setMobile("");
+    // setEmail("");
+    // setAddress("");
+    // setGender("");
+    // setMartialStatus("");
+    // setState("");
+    // setError("");
+
+  
 
 
   }
