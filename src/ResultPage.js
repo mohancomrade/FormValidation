@@ -1,5 +1,6 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
+import "./Result.css"
 
 function ResultPage() {
   const location = useLocation();
@@ -7,8 +8,8 @@ function ResultPage() {
 
   return (
     <div>
-      <h2>Result Page</h2>
-     <ul>
+      <h2 className="m-5">Your Details</h2>
+     <ul className="m-5 list-unstyled" >
         {values.map((value, index) => (
           <li key={index}>
             <div>Name: {value.name}</div>
@@ -22,6 +23,8 @@ function ResultPage() {
           </li>
         ))}
       </ul>
+
+      
     </div>
   );
 }

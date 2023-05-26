@@ -89,11 +89,11 @@ function Forms() {
     }
 
     if (name.length != 8 && name.length < 8) {
-      setError("Name cannot be more than 8 characters");
+      setError("Name Should be more than 8 characters");
       return;
     }
     if (fatherName.length < 8 && fatherName.length != 8) {
-      setError("Father's name cannot be more than 8 characters");
+      setError("Father's name Should be more than 8 characters");
       return;
     }
 
@@ -101,19 +101,20 @@ function Forms() {
       setError("Please Enter The Ten Numbers only");
       return;
     }
-    setValues([
-      ...values,
-      {
-        name,
-        fatherName,
-        mobile,
-        email,
-        address,
-        gender,
-        martialStatus,
-        state,
-      },
-    ]);
+    // setValues([
+    //   ...values,
+    //   {
+    //     name,
+    //     fatherName,
+    //     mobile,
+    //     email,
+    //     address,
+    //     gender,
+    //     martialStatus,
+    //     state,
+    //   },
+    // ]);
+
     navigate("/result-page", {
       state: {
         values: [
@@ -121,8 +122,8 @@ function Forms() {
           {
             name,
             fatherName,
-            mobile,
             email,
+            mobile,
             address,
             gender,
             martialStatus,
@@ -239,6 +240,7 @@ function Forms() {
           {/* {errors.gender && <span>{errors.gender}</span>} */}
         </div>
         {/* <div> */}
+
         <div className="mt-3">
           <label htmlFor="">Marital Status:</label>
           <input
@@ -253,15 +255,18 @@ function Forms() {
           <input
             type="checkbox"
             id="married"
-            name="married"
+            name="gender"
             value="married"
-            checked={matchRoutes === "married"}
+            checked={martialStatus === "married"}
             onChange={handleMartialsChange}
           />
           <label htmlFor="married">Married</label>
           {/* {errors.gender && <span>{errors.gender}</span>} */}
         </div>
         <p>You have selected: {martialStatus || matchRoutes || "Unknown"}</p>
+
+
+
         <div className="mt-2">
           <label htmlFor="state">State:</label>
           <select id="state" value={state} onChange={handleStateChange}>
